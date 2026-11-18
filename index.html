@@ -5,13 +5,43 @@
 </head>
 <body>
 
-    <!-- Картинка прижата влево вверху -->
+    
 <img src="bus.jpg"width="100" align="left">
-    <!-- Текст идет после картинки -->
+ 
     <h1>PolyExpress</h1>
     <p>Сервис для удобной поездки с учебных пар до дома.</p>
     
-    
+    <p>Сервис для удобной поездки с учебных пар до дома.</p>
+
+
+    <div style="margin-top: 20px; padding: 15px; border: 2px solid #333; width: 300px; font-family: sans-serif;">
+        <h3>Введите время окончания пар:</h3>
+        
+        <div id="schedule-display">
+        
+            <p>Нажмите кнопку ниже, чтобы начать.</p>
+        </div>
+
+        <button onclick="askSchedule()" style="padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; font-size: 16px;">
+            Заполнить расписание
+        </button>
+    </div>
+
+    <script>
+        function askSchedule() {
+            const days = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+            let resultHTML = "";
+            for (let i = 0; i < days.length; i++) {
+               
+                let time = prompt("Введите время окончания пар в " + days[i] + " (например, 15:30):")
+                if (time === null || time.trim() === "") {
+                    time = "Не указано";
+                }
+                resultHTML += "<p><b>" + days[i] + ":</b> " + time + "</p>";
+            }
+            document.getElementById("schedule-display").innerHTML = resultHTML;
+        }
+    </script>
 
 </body>
 </html>
