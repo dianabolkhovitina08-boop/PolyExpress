@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Расписание</title>
+</head>
+<body>
+
+    <h2>Расписание окончания пар</h2>
+
+    <div id="days-container"></div>
+
+    <script>
+        const days = [
+            { id: "mon", name: "Понедельник" },
+            { id: "tue", name: "Вторник" },
+            { id: "wed", name: "Среда" },
+            { id: "thu", name: "Четверг" },
+            { id: "fri", name: "Пятница" },
+            { id: "sat", name: "Суббота" }
+        ];
+
+        const busLink = ; 
+
+        function buildSchedule() {
+            const container = document.getElementById("days-container");
+            let htmlContent = "";
+
+            days.forEach(day => {
+                htmlContent += `
+                    <div>
+                        <b>${day.name}:</b>
+                        <input type="time" id="time-${day.id}">
+                        <button onclick="openBusLink()">Узнать когда прибудет автобус</button>
+                    </div>
+                    
+
+                `;
+            });
+
+            container.innerHTML = htmlContent;
+        }
+
+        function openBusLink() {
+            window.open(busLink, "_blank");
+        }
+
+        buildSchedule();
+    </script>
+
+</body>
+</html>
